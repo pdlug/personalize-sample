@@ -5,6 +5,9 @@ create an account and sign up for alerts (email, RSS, Twitter, etc.).
 The instructions below cover the basics of what is there and the TODO
 file provides ideas for next steps.
 
+Useful as a basic starter app for sinatra/mongoid, teaching tool, or
+basis for interview coding problem sets.
+
 ## Requirements
 
 * Ruby
@@ -46,7 +49,14 @@ are able to sign up to receive as many individual alerts as provided by
 the system
 
 ## Technologies used
+
+Ruby stack:
 * [Sinatra](http://sinatrarb.com/)
 * [Mongoid](http://mongoid.org/)
 * [rspec](https://www.relishapp.com/rspec)
 * [randexp](https://github.com/benburkert/randexp)
+
+Front end:
+* [html5boilerplate](http://html5boilerplate.com/)
+* [jQuery](http://jquery.com/)
+* [Modernizr](http://modernizr.com/)

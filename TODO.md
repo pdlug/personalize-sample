@@ -42,9 +42,7 @@ persist their choices
 * Bootstrap the initial list of available alerts from a YAML or other
 file in the config directory (or a data directory) rather than code in
 the configure block of the sinatra app.
-
 * Clear out the test database prior to every run to ensure all tests
 are run in a fresh environment.
-
 * Use [factory_girl](https://github.com/thoughtbot/factory_girl) or
 something similar to generate fixtures for specs.
