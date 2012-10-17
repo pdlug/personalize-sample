@@ -1,0 +1,27 @@
+production:
+  sessions:
+    default:
+      hosts:
+        - 127.0.0.1:27017
+      database: personalize_production
+  options:
+    allow_dynamic_fields: false
+    raise_not_found_error: false
+development:
+  sessions:
+    default:
+      hosts:
+        - 127.0.0.1:27017
+      database: personalize_development
+  options:
+    allow_dynamic_fields: false
+    raise_not_found_error: false
+test:
+  sessions:
+    default:
+      hosts:
+        - 127.0.0.1:27017
+      database: personalize_test
+  options:
+    allow_dynamic_fields: false
+    raise_not_found_error: false

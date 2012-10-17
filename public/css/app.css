@@ -1,0 +1,12 @@
+body {
+  margin: 20px;
+}
+
+.tabular-form th {
+  text-align: right;
+  font-weight: normal;
+}
+
+.tabular-form td {
+  padding: 5px 2px;
+}
