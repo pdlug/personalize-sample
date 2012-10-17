@@ -5,6 +5,12 @@ create an account and sign up for alerts (email, RSS, Twitter, etc.).
 The instructions below cover the basics of what is there and the TODO
 file provides ideas for next steps.
 
+## Requirements
+
+* Ruby
+* [Bundler](http://gembundler.com/)
+* [MongoDB](http://www.mongodb.org/) - must be running on your local host (downloading a package and starting via ./bin/mongod is sufficient).
+
 ## Getting Started
 
     bundle install --path vendor
