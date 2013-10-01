@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'erb'
 require 'haml'
 require 'mongoid'
@@ -5,7 +7,6 @@ require 'sinatra'
 
 require_relative 'models/alert'
 require_relative 'models/user'
-
 
 class PersonalizeServer < Sinatra::Base
   set :raise_errors, true
@@ -16,7 +17,8 @@ class PersonalizeServer < Sinatra::Base
   set :root, File.expand_path('..', File.dirname(__FILE__))
 
   configure do
-    Mongoid.load!(File.join(root, 'config', 'mongoid.yml'), Sinatra::Application.environment)
+    Mongoid.load!(File.join(root, 'config', 'mongoid.yml'),
+                  Sinatra::Application.environment)
 
     # Bootstrap our basic alerts if this is a fresh DB
     if Alert.count == 0

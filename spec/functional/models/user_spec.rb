@@ -1,3 +1,4 @@
+# encoding: utf-8
 require File.expand_path('../../spec_helper', File.dirname(__FILE__))
 
 describe User do
@@ -6,8 +7,8 @@ describe User do
 
     %w(name username password email).each do |p|
       it "should have a property #{p}" do
-        user.should respond_to(p.to_sym)
-        user.should respond_to("#{p}=".to_sym)
+        expect(user).to respond_to(p.to_sym)
+        expect(user).to respond_to("#{p}=".to_sym)
       end
     end
   end
@@ -18,8 +19,8 @@ describe User do
         let(:user) { User.new }
 
         it 'should not be valid' do
-          user.should_not be_valid
-          user.errors[:username].should_not be_blank
+          expect(user).not_to be_valid
+          expect(user.errors[:username]).not_to be_blank
         end
       end
 
@@ -27,22 +28,22 @@ describe User do
         let(:user) { User.new }
 
         it 'should not be valid' do
-          user.should_not be_valid
-          user.errors[:username].should_not be_blank
+          expect(user).not_to be_valid
+          expect(user.errors[:username]).not_to be_blank
         end
       end
 
       describe 'invalid usernames' do
         let(:user) { User.new }
 
-        it 'should not be valid if username contains any non-lowercase alphanumeric characters' do
+        it 'is not valid if username contains any non-lowercase alphanumeric characters' do
           [
             '  foo',
             'u$sername',
           ].each do |username|
             user.username = username
-            user.should_not be_valid
-            user.errors[:username].should_not be_blank
+            expect(user).not_to be_valid
+            expect(user.errors[:username]).not_to be_blank
           end
         end
       end
@@ -51,13 +52,13 @@ describe User do
         let(:user) { User.new }
 
         it 'should valid if username consists of lowercase alphanumeric characters' do
-          [
-            'foo',
-            'bar123',
-          ].each do |username|
+          %w(
+            foo
+            bar123
+          ).each do |username|
             user.username = username
-            user.should_not be_valid
-            user.errors[:username].should_not be_blank
+            expect(user).not_to be_valid
+            expect(user.errors[:username]).not_to be_blank
           end
         end
       end
