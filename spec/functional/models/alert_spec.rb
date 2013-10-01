@@ -6,7 +6,7 @@ describe Alert do
     let(:alert) { Alert.new }
 
     %w(category label).each do |p|
-      it "should have a property #{p}" do
+      it "has a property #{p}" do
         expect(alert).to respond_to(p.to_sym)
         expect(alert).to respond_to("#{p}=".to_sym)
       end

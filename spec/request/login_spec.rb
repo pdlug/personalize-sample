@@ -13,7 +13,7 @@ describe 'POST /login' do
   end
 
   context 'given an only a username' do
-    let(:user) { User.create(username: /\w{8}/.gen, password: /\w{10}/.gen) }
+    let(:user) { User.create(username: /\w{8}/.gen.downcase, password: /\w{10}/.gen) }
     before do
       post '/login', username: user.username
     end
@@ -24,7 +24,7 @@ describe 'POST /login' do
   end
 
   context 'given a valid username/password' do
-    let(:user) { User.create(username: /\w{8}/.gen, password: /\w{10}/.gen) }
+    let(:user) { User.create(username: /\w{8}/.gen.downcase, password: /\w{10}/.gen) }
 
     before do
       post '/login', username: user.username, password: user.password
