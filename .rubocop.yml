@@ -1,0 +1,29 @@
+Style/MultilineBlockChain:
+  Description: 'Avoid multi-line chains of blocks.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#single-line-blocks'
+  Enabled: false
+Style/MultilineOperationIndentation:
+  EnforcedStyle: indented
+Style/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+Style/Documentation:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Style/MultilineMethodCallBraceLayout:
+  EnforcedStyle: same_line
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+Metrics/ClassLength:
+  Exclude:
+    - app/app.rb
+    - app/controllers/**/*.rb
+Metrics/ModuleLength:
+  Exclude:
+    - app/controllers/**/*.rb
+    - app/helpers/**/*.rb
+Metrics/BlockLength:
+  Exclude:
+    - app/app.rb
+    - app/controllers/**/*.rb
+    - spec/**/*

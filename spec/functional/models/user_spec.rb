@@ -1,11 +1,12 @@
 # encoding: utf-8
+
 require File.expand_path('../../spec_helper', File.dirname(__FILE__))
 
 describe User do
   describe 'properties' do
     let(:user) { User.new }
 
-    %w(name username password email).each do |p|
+    %w[name username password email].each do |p|
       it "has a property #{p}" do
         expect(user).to respond_to(p.to_sym)
         expect(user).to respond_to("#{p}=".to_sym)
@@ -36,10 +37,11 @@ describe User do
       describe 'invalid usernames' do
         let(:user) { User.new }
 
-        it 'is not valid if username contains any non-lowercase alphanumeric characters' do
+        it 'is not valid if username contains any non-lowercase alphanum '\
+           'characters' do
           [
             '  foo',
-            'u$sername',
+            'u$sername'
           ].each do |username|
             user.username = username
             expect(user).not_to be_valid
@@ -51,11 +53,11 @@ describe User do
       describe 'valid usernames' do
         let(:user) { User.new }
 
-        it 'is valid if username consists of lowercase alphanumeric characters' do
-          %w(
+        it 'is valid if username consists of lowercase alphanum characters' do
+          %w[
             foo
             bar123
-          ).each do |username|
+          ].each do |username|
             user.username = username
             expect(user).to be_valid
             expect(user.errors[:username]).to be_blank

@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 require 'erb'
-require 'haml'
 require 'mongoid'
 require 'sinatra'
+require 'slim'
 
 require_relative 'models/alert'
 require_relative 'models/user'
@@ -21,7 +21,7 @@ class PersonalizeServer < Sinatra::Base
                   Sinatra::Application.environment)
 
     # Bootstrap our basic alerts if this is a fresh DB
-    if Alert.count == 0
+    if Alert.count.zero?
       Alert.create(category: 'business', label: 'Business News')
       Alert.create(category: 'technology', label: 'Technology News')
       Alert.create(category: 'travel', label: 'Travel News')
@@ -29,13 +29,14 @@ class PersonalizeServer < Sinatra::Base
   end
 
   get '/' do
-    haml :index
+    slim :index
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username], password: params[:password])
+    @user = User.find_by(
+      username: params[:username], password: params[:password])
     if @user
-      haml :welcome
+      slim :welcome
     else
       halt 401
     end

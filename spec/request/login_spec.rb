@@ -1,4 +1,5 @@
 # encoding: utf-8
+
 require File.expand_path('../spec_helper', File.dirname(__FILE__))
 
 describe 'POST /login' do
@@ -13,7 +14,9 @@ describe 'POST /login' do
   end
 
   context 'given an only a username' do
-    let(:user) { User.create(username: /\w{8}/.gen.downcase, password: /\w{10}/.gen) }
+    let(:user) do
+      User.create(username: /\w{8}/.gen.downcase, password: /\w{10}/.gen)
+    end
     before do
       post '/login', username: user.username
     end
@@ -24,7 +27,9 @@ describe 'POST /login' do
   end
 
   context 'given a valid username/password' do
-    let(:user) { User.create(username: /\w{8}/.gen.downcase, password: /\w{10}/.gen) }
+    let(:user) do
+      User.create(username: /\w{8}/.gen.downcase, password: /\w{10}/.gen)
+    end
 
     before do
       post '/login', username: user.username, password: user.password
